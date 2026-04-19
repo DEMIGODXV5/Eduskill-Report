@@ -17,6 +17,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage{eso-pic}
+\usepackage{ragged2e}
 
 \hypersetup{
     colorlinks=true,
@@ -33,23 +34,25 @@
 \fancyfoot[L]{\small NMIET, Department of Computer Engineering 2025-26}
 \fancyfoot[R]{\small \thepage}
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
 
 \fancypagestyle{plain}{
     \fancyhf{}
     \fancyfoot[L]{\small NMIET, Department of Computer Engineering 2025-26}
     \fancyfoot[R]{\small \thepage}
     \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
 }
 
 % ─── Chapter Title Format ───────────────────────────────────
 \titleformat{\chapter}[display]
   {\normalfont\Large\bfseries\centering}
-  {CHAPTER \Roman{chapter}}{20pt}{\Large\centering}
-\titlespacing*{\chapter}{0pt}{-1cm}{15pt}
+ {CHAPTER \Roman{chapter}\vspace{0.15cm}\hrule}
+  {5pt}
+  {\Large\centering}
+\titlespacing*{\chapter}{0pt}{-1cm}{8pt}
 
-\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
 
 % ════════════════════════════════════════════════════════════
@@ -131,12 +134,13 @@ under my supervision, in the partial fulfilment of Bachelor of Engineering in Co
 Engineering of Savitribai Phule Pune University (SPPU).
 
 \vspace{2cm}
-\noindent Date: 05/03/2025 \hfill Place: Pune
+\noindent Date: 20/04/2026 \hfill Place: Pune
 
 \vspace{3cm}
 \noindent
 \begin{tabular}{p{4cm} p{4.5cm} p{4.5cm}}
-    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD Computer Engineering}
+    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD}\\
+    & & \textbf{Computer Engineering}
 \end{tabular}
 
 
@@ -494,17 +498,20 @@ computing and AI.
     \rule{\linewidth}{0.4pt}
 \end{center}
 
-\begin{enumerate}[leftmargin=1.5cm, label={[\arabic*]}]
+\vspace{0.4cm}
+
+\begin{enumerate}[leftmargin=1.5cm, label={[\arabic*]}, itemsep=0.3cm]
+\justifying
 
     \item Amazon Web Services, \textit{AWS Lambda -- Serverless Computing Documentation}. [Online]. Available: \url{https://docs.aws.amazon.com/lambda/}
 
-    \item Amazon Web Services, \textit{Amazon SageMaker -- Machine Learning Documentation}. [Online]. Available: \url{https://docs.aws.amazon.com/sagemaker/}
+    \item Amazon Web Services, \textit{Amazon SageMaker -- Machine Learning Documentation}. [Online]. Available: \\ \url{https://docs.aws.amazon.com/sagemaker/}
 
     \item Amazon Web Services, \textit{Amazon Bedrock -- Generative AI Documentation}. [Online]. Available: \url{https://docs.aws.amazon.com/bedrock/}
 
     \item Amazon Web Services, \textit{Amazon EventBridge Documentation}. [Online]. Available: \url{https://docs.aws.amazon.com/eventbridge/}
 
-    \item Amazon Web Services, \textit{Amazon CloudWatch -- Monitoring and Observability}. [Online]. Available: \url{https://docs.aws.amazon.com/cloudwatch/}
+    \item Amazon Web Services, \textit{Amazon CloudWatch -- Monitoring and Observability}. [Online]. Available: \\ \url{https://docs.aws.amazon.com/cloudwatch/}
 
     \item E. Jonas et al., ``Cloud programming simplified: A Berkeley view on serverless computing,'' \textit{arXiv preprint}, arXiv:1902.03383, Feb. 2019. [Online]. Available: \url{https://arxiv.org/abs/1902.03383}
 
@@ -560,11 +567,12 @@ computing and AI.
 \vspace{0.15cm}
 \noindent The institute has \textbf{no objection} to the student undergoing internship from \textbf{Start Date:} \underline{\hspace{2.5cm}} to \textbf{End Date:} \underline{\hspace{2cm}} mode as per the company guidelines. This internship is a part of the academic curriculum of SPPU, Pune. The student will abide by all the rules, regulations, and confidentiality policies of your organization during the internship period. We shall be thankful for your kind cooperation and support.
 
-\vspace{0.5cm}
+\vspace{1.5cm}
 \noindent
 \begin{tabular}{p{3.5cm} p{4.5cm} p{4cm}}
      & Prof. Nilesh Kamble & Dr. Rahul Patil \\[0.2cm]
-    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD Computer Engineering}
+    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD}\\
+     & & \textbf{Computer Engineering}
 \end{tabular}
 
 
