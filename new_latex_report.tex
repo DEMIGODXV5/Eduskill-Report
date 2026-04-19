@@ -1,0 +1,737 @@
+\documentclass[12pt, a4paper, oneside]{report}
+
+% ─── Packages ───────────────────────────────────────────────
+\usepackage[top=1.3in, bottom=1.3in, left=1.2in, right=1.3in]{geometry}
+\usepackage{mathptmx}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{eso-pic}
+\usepackage{ragged2e}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\onehalfspacing
+
+% ─── Header/Footer ──────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small NMIET, Department of Computer Engineering 2025-26}
+\fancyfoot[R]{\small \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\small NMIET, Department of Computer Engineering 2025-26}
+    \fancyfoot[R]{\small \thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% ─── Chapter Title Format ───────────────────────────────────
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries\centering}
+ {CHAPTER \Roman{chapter}\vspace{0.15cm}\hrule}
+  {5pt}
+  {\Large\centering}
+\titlespacing*{\chapter}{0pt}{-1cm}{8pt}
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% ════════════════════════════════════════════════════════════
+\begin{document}
+\AddToShipoutPictureBG{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw[line width=1.5pt]
+            ($ (current page.north west) + (1cm,-1cm) $)
+            rectangle
+            ($ (current page.south east) + (-1cm,1cm) $);
+        \draw[line width=0.4pt]
+            ($ (current page.north west) + (1.15cm,-1.15cm) $)
+            rectangle
+            ($ (current page.south east) + (-1.15cm,1.15cm) $);
+    \end{tikzpicture}%
+}
+
+% ════════════════════════════════════════════════════════════
+%  PAGE 1 — TITLE PAGE
+% ════════════════════════════════════════════════════════════
+\begin{titlepage}
+\thispagestyle{fancy}
+\pagenumbering{gobble}
+\centering
+
+\vspace*{-1cm}
+{\large An}\\[0.3cm]
+{\LARGE \textit{Internship Report}}\\[0.5cm]
+
+{\normalsize SUBMITTED TO THE SAVITRIBAI PHULE PUNE UNIVERSITY, PUNE}\\
+{\normalsize IN THE PARTIAL FULFILLMENT OF THE REQUIREMENTS}\\
+{\normalsize FOR THE AWARD OF THE DEGREE}\\[0.4cm]
+
+{\normalsize \textit{of}}\\[0.3cm]
+
+{\large \textbf{BACHELOR OF ENGINEERING}}\\[0.3cm]
+{\normalsize \textit{in}}\\[0.3cm]
+{\large \textbf{COMPUTER ENGINEERING}}\\[0.8cm]
+
+{\normalsize SUBMITTED BY}\\
+{\normalsize \textbf{ADITYA SHAILESH BHARATE}}\\[0.8cm]
+
+{\normalsize \textbf{UNDER THE GUIDANCE OF}}\\
+{\normalsize PROF -- ASHWINI UTTURE}\\[0.8cm]
+
+{\normalsize DEPARTMENT OF COMPUTER ENGINEERING}\\
+{\normalsize (NBA ACCREDITED)}\\[0.8cm]
+
+% ── Replace 'nmiet_logo.png' with your actual logo file ──
+\includegraphics[width=0.22\textwidth]{nmiet_logo.png}\\[0.8cm]
+
+{\normalsize NUTAN MAHARASHTRA INSTITUTE OF ENGINEERING \& TECHNOLOGY}\\
+{\normalsize \textbf{TALEGAON DABHADE TAL.MAVAL, PUNE, 410507}}\\
+{\normalsize SAVITRIBAIPHULEPUNEUNIVERSITY}\\
+{\normalsize 2025 --2026}
+
+\end{titlepage}
+
+
+% ════════════════════════════════════════════════════════════
+%  PAGE 2 — CERTIFICATE
+% ════════════════════════════════════════════════════════════
+\pagenumbering{gobble}
+\chapter*{}
+\thispagestyle{fancy}
+\vspace*{-1.5cm}
+\begin{center}
+    {\normalsize PCET's \& NMVPM's}\\[0.2cm]
+    {\large \textbf{NUTAN MAHARASHTRA INSTITUTE OF ENGINEERING \& TECHNOLOGY}}\\
+    {\normalsize TALEGAON DABHADE, PUNE -- 410507}\\[0.5cm]
+
+    % ── Replace 'nmiet_logo.png' with your actual logo file ──
+    \includegraphics[width=0.22\textwidth]{nmiet_logo.png}\\[0.5cm]
+
+    {\Huge \textit{Certificate}}\\[0.8cm]
+\end{center}
+
+\noindent This is to certify that, \textbf{Aditya Shailesh Bharate (Roll No. 01)} have successfully 
+completed the Internship entitled and ``\underline{AWS AI-POWERED CLOUD ENGINEER}'' 
+under my supervision, in the partial fulfilment of Bachelor of Engineering in Computer 
+Engineering of Savitribai Phule Pune University (SPPU).
+
+\vspace{2cm}
+\noindent Date: 20/04/2026 \hfill Place: Pune
+
+\vspace{3cm}
+\noindent
+\begin{tabular}{p{4cm} p{4.5cm} p{4.5cm}}
+    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD}\\
+    & & \textbf{Computer Engineering}
+\end{tabular}
+
+
+% ════════════════════════════════════════════════════════════
+%  PAGE 3 — ACKNOWLEDGEMENT
+% ════════════════════════════════════════════════════════════
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\chapter*{ACKNOWLEDGEMENT}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\thispagestyle{fancy}
+
+I would like to express our deepest gratitude and appreciation to all those who have 
+contributed to the successful completion of this Internship. It is with great pleasure that we 
+acknowledge their invaluable support, guidance, and encouragement throughout this journey.
+
+I thank our Internship guide \textbf{Prof. Ashwini Utture}, for her exceptional support, 
+guidance, and patience throughout this journey. Her expertise and mentorship have been 
+invaluable in shaping our understanding of the internship and overcoming challenges.
+
+I would like to express our gratitude to our Internship coordinator \textbf{Prof. Nilesh Kamble} 
+for their valuable suggestions, encouragement, and motivation that have contributed to the 
+successful completion of this internship. We extend our appreciation to all the faculty members 
+for their continuous support and encouragement during the course of this Internship.
+
+I express our heartily gratitude towards \textbf{Dr. Rahul Patil}, Head of Department of 
+Computer Engineering for guiding us to understand the work conceptually and also for 
+providing necessary information and required resources with his constant encouragement to 
+complete this internship work.
+
+With deep sense of gratitude, I thank our principal \textbf{Dr. Pramod Patil} and Management 
+of the NMIET for providing all necessary facilities and their constant encouragement and 
+support. The encouragement and academic environment provided by our institution were 
+crucial in fostering our creativity and enabling us to explore new ideas.
+
+My sincere thanks to all the teaching and non-teaching staff members of the Computer 
+Engineering Department for their assistance, cooperation, and provision of the required 
+resources throughout this Internship. I am ending this acknowledgement with deep 
+indebtedness to my friends who have helped us.
+
+I sincerely acknowledge and appreciate the contributions of all those who directly or 
+indirectly supported us in the completion of this Internship.
+
+
+% ════════════════════════════════════════════════════════════
+%  PAGE 4 — TABLE OF CONTENTS
+% ════════════════════════════════════════════════════════════
+\tableofcontents
+\thispagestyle{fancy}
+
+
+% ════════════════════════════════════════════════════════════
+%  CHAPTER I — ORGANIZATIONAL STRUCTURE OF INDUSTRY
+% ════════════════════════════════════════════════════════════
+\chapter{ORGANIZATIONAL STRUCTURE OF INDUSTRY}
+
+\section{Organizational Structure:}
+
+% If you have an org chart image, insert it here:
+% \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{org_chart.png}
+%     \caption{Organizational Structure of Eduskills Foundation}
+% \end{figure}
+
+\section{Address of the Company:}
+
+\noindent \textbf{Corp. Office:} B-7, Awfis - Allied House, Near AICTE, Nelson Mandela Marg, 
+Vasant Kunj, New Delhi -- 110070
+
+\noindent \textbf{Head Office:} \#806, DLF Cyber City, Technology Corridor, 
+Bhubaneswar - 751024, Odisha.
+
+\noindent \textbf{Name:} Eduskills Foundation
+
+\noindent \textbf{Address (Head Office):} \#806, DLF Cyber City, Technology Corridor, 
+Bhubaneswar -- 751024, Odisha
+
+\noindent \textbf{CIN:} [Enter CIN Number]
+
+\section{Company Vision:}
+
+Transforming the vision of skilled India and education for to benefit the education 
+ecosystem by providing 360 degree holistic solutions to all the stakeholders.
+
+\section{Company Mission:}
+
+To positively impact 1 million beneficiaries by 2026.
+
+\medskip
+\noindent \textbf{How:}
+
+By comprehensive identification of skills gaps in the students and mapping them with 
+latest and world's best technical skills.
+
+
+% ════════════════════════════════════════════════════════════
+%  CHAPTER II — TECHNOLOGY LEARNED IN COMPANY
+% ════════════════════════════════════════════════════════════
+\chapter{TECHNOLOGY LEARNED IN COMPANY}
+
+During the internship conducted through the Amazon Web Services Educate platform, 
+several modern technologies related to cloud computing and artificial intelligence 
+were studied. The training focused on understanding how cloud platforms help 
+organizations store data, run applications, and manage infrastructure efficiently without 
+relying on physical hardware. This approach improves scalability, cost efficiency, and 
+system reliability, making cloud computing a key technology used by modern 
+businesses and technology companies.
+
+The internship also introduced practical knowledge of different AWS services used for 
+computing, storage, networking, databases, serverless applications, and artificial 
+intelligence. Through structured learning modules and assessments, a strong foundation 
+was developed in cloud infrastructure, serverless architecture, machine learning 
+fundamentals, and generative AI technologies, helping to understand how intelligent 
+applications can be built using cloud platforms.
+
+\medskip
+\noindent \textbf{Technologies Learned}
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item Cloud Computing Fundamentals
+    \item Amazon S3 -- Cloud Storage Service
+    \item Amazon EC2 -- Virtual Cloud Computing Instances
+    \item Virtual Private Cloud (VPC) -- Cloud Networking
+    \item Amazon RDS -- Managed Relational Database Service
+    \item AWS Lambda -- Serverless Computing
+    \item Amazon SageMaker -- Machine Learning Platform
+    \item Amazon Bedrock -- Generative AI Service
+    \item Cloud Security and Monitoring Concepts
+    \item AI-Powered Cloud Application Development
+\end{itemize}
+
+
+% ════════════════════════════════════════════════════════════
+%  CHAPTER III — DESCRIPTION OF INTERNSHIP
+% ════════════════════════════════════════════════════════════
+\chapter{DESCRIPTION OF INTERNSHIP}
+
+During my internship, I gained foundational knowledge and practical exposure to cloud 
+computing and artificial intelligence technologies through the Amazon Web Services 
+Educate learning platform. The training consisted of structured modules designed to 
+introduce key cloud concepts and widely used AWS services. Through these modules, I 
+explored how cloud platforms enable organizations to store data, deploy applications, 
+and manage infrastructure efficiently without relying on traditional on-premise systems.
+
+The internship was organized into multiple learning modules covering topics such as 
+cloud fundamentals, storage services, compute services, networking, databases, cloud 
+security, serverless computing, machine learning, and generative AI. Each module 
+included instructional materials, demonstrations, and assessments that helped me 
+understand the working principles of different cloud services and their role in building 
+modern cloud-based applications.
+
+During the training, I explored several important AWS services such as Amazon S3 for 
+cloud storage, Amazon EC2 for virtual computing resources, and AWS Lambda for 
+serverless computing. Learning about these technologies helped me understand how 
+developers can build applications that automatically scale based on demand without 
+managing physical infrastructure. I also studied database management using Amazon 
+RDS, which simplifies database deployment and maintenance in cloud environments.
+
+Additionally, the internship introduced emerging technologies such as machine 
+learning and generative artificial intelligence using tools like Amazon SageMaker 
+and Amazon Bedrock. These modules provided insight into how AI models can be 
+trained, deployed, and integrated with cloud services to develop intelligent applications. 
+Overall, the internship broadened my understanding of modern cloud ecosystems and 
+gave me practical exposure to technologies that are widely used in today's technology 
+industry.
+
+% ════════════════════════════════════════════════════════════
+%  CHAPTER IV — PROJECT IMPLEMENTATION
+% ════════════════════════════════════════════════════════════
+\chapter{PROJECT IMPLEMENTATION}
+
+\section{Project Title}
+\textbf{Event-Driven Serverless EC2 Cost Optimization System on AWS}
+
+\section{Overview}
+This project implements an automated, serverless solution on AWS to optimize cloud costs by identifying and stopping idle EC2 instances. It leverages AWS native services to ensure scalability, efficiency, and minimal operational overhead.
+
+\section{Problem Statement}
+In cloud environments, EC2 instances often remain running even when not actively used, leading to unnecessary costs. Manually monitoring and managing these instances is inefficient and error-prone.
+
+\section{Objective}
+To design and implement an automated system that:
+\begin{itemize}[leftmargin=1.5cm]
+    \item Detects idle EC2 instances
+    \item Stops non-essential instances based on usage patterns
+    \item Reduces cloud infrastructure costs
+    \item Operates without manual intervention
+\end{itemize}
+
+\section{Architecture \& Services Used}
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{AWS EventBridge} -- Schedules periodic triggers
+    \item \textbf{AWS Lambda} -- Executes logic for monitoring and control
+    \item \textbf{Amazon EC2} -- Compute resources being monitored
+    \item \textbf{Amazon CloudWatch} -- Provides CPU utilization metrics
+    \item \textbf{AWS IAM} -- Manages roles and permissions
+    \item \textbf{AWS Tags} -- Filters non-production instances
+\end{itemize}
+
+\section{System Workflow}
+\begin{enumerate}[leftmargin=1.5cm]
+    \item EventBridge triggers the Lambda function at defined intervals
+    \item Lambda fetches the list of EC2 instances
+    \item Filters instances based on tags (e.g., non-production)
+    \item Retrieves CPU utilization metrics from CloudWatch
+    \item Compares usage against a predefined threshold
+    \item Stops instances identified as idle
+    \item Logs all actions for monitoring and auditing
+\end{enumerate}
+
+\section{Key Features}
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{Fully Serverless} -- No infrastructure management required
+    \item \textbf{Automated Scheduling} -- Runs periodically using EventBridge
+    \item \textbf{Cost Optimization} -- Reduces unnecessary cloud spending
+    \item \textbf{Tag-Based Filtering} -- Ensures production safety
+    \item \textbf{Scalable Design} -- Works across multiple instances
+    \item \textbf{Monitoring \& Logging} -- Tracks actions using CloudWatch Logs
+\end{itemize}
+
+\section{Idle Detection Logic}
+Idle instances are determined based on CPU utilization thresholds:
+\begin{itemize}[leftmargin=1.5cm]
+    \item If CPU usage remains below a defined threshold (e.g., 5--10\%) over a specific duration
+    \item The instance is classified as idle
+    \item The system automatically stops the instance
+\end{itemize}
+
+\section{Challenges \& Solutions}
+
+\noindent\textbf{Challenge:} Defining what qualifies as an ``idle'' instance\\
+\textbf{Solution:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Implemented CPU utilization thresholds
+    \item Used CloudWatch metrics over a time window instead of instant values
+\end{itemize}
+
+\noindent\textbf{Challenge:} Avoid affecting critical systems\\
+\textbf{Solution:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Applied tag-based filtering to exclude production resources
+\end{itemize}
+
+\section{Results \& Impact}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Reduced unnecessary EC2 runtime costs
+    \item Eliminated manual monitoring effort
+    \item Improved operational efficiency
+    \item Demonstrated effective use of serverless architecture
+\end{itemize}
+
+\section{Future Enhancements}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Add auto-start functionality based on schedules
+    \item Integrate notification system (SNS/Email alerts)
+    \item Use machine learning for smarter idle detection
+    \item Extend support to other AWS resources (RDS, ECS)
+\end{itemize}
+
+\section{Conclusion}
+This project demonstrates how an event-driven, serverless architecture can effectively automate infrastructure management tasks. By combining AWS services like EventBridge, Lambda, and CloudWatch, the solution achieves cost optimization while maintaining scalability and reliability.
+
+
+% ════════════════════════════════════════════════════════════
+%  CHAPTER V — DESCRIPTION OF TASKS
+% ════════════════════════════════════════════════════════════
+\chapter{DESCRIPTION OF TASKS}
+
+During the internship, I completed a structured set of learning modules through the 
+Amazon Web Services Educate platform as part of the AI Powered Cloud Engineer 
+training program. Each module focused on a different aspect of cloud computing and 
+artificial intelligence technologies that are widely used in modern IT infrastructure.
+
+The initial module introduced the fundamentals of cloud computing, including the 
+concept of cloud infrastructure, benefits of cloud adoption, and different service models 
+used by cloud providers. The next modules focused on cloud storage and computing 
+services, where I studied how Amazon S3 is used for storing and managing large 
+amounts of data and how Amazon EC2 provides scalable virtual computing resources.
+
+Further modules covered cloud networking and databases, where I explored the concept 
+of Virtual Private Cloud (VPC) and learned how organizations manage relational 
+databases using Amazon RDS. Additional modules introduced cloud operations and 
+security, focusing on monitoring systems, access management, and protection of cloud 
+resources.
+
+The internship also included advanced topics such as serverless computing using AWS 
+Lambda, machine learning foundations using Amazon SageMaker, and generative 
+artificial intelligence using Amazon Bedrock. These modules helped me understand how 
+cloud platforms can support intelligent and scalable applications.
+\newpage
+
+\section{Introduction of Projects:}
+
+\subsection*{Architecture Diagram}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth, height=0.38\textheight, keepaspectratio]{architecture_diagram.png}
+    \caption{System Architecture -- Event-Driven Serverless EC2 Cost Optimization}
+    \label{fig:architecture}
+\end{figure}
+
+\subsection*{EC2 Instance Creation}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth, height=0.38\textheight, keepaspectratio]{ec2_creation.png}
+    \caption{EC2 Instance Creation on AWS Console along with Volume and Snapshots}
+    \label{fig:ec2_creation}
+\end{figure}
+\newpage
+
+\subsection*{Lambda Function Code}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth, height=0.38\textheight, keepaspectratio]{lambda_code.png}
+    \caption{Lambda Function Code for Idle Volume and Snapshot Deletion}
+    \label{fig:lambda_code}
+\end{figure}
+
+\subsection*{EC2 Instance Stopped}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth, height=0.38\textheight, keepaspectratio]{ec2_instance.png}
+    \caption{EC2 Dashboard after Lambda Execution : Deleted IDLE Snapshots}
+    \label{fig:ec2_instance}
+\end{figure}
+
+
+\newpage
+\section{Motivation and Relational Study:}
+
+The increasing use of digital platforms and online services has created a strong demand 
+for scalable computing infrastructure. Cloud computing has emerged as a powerful 
+solution that allows organizations to access computing resources such as storage, 
+processing power, and databases through the internet without maintaining their own 
+hardware systems.
+
+The motivation behind undertaking this internship was to gain practical exposure to 
+cloud technologies and understand how modern IT systems are designed using cloud 
+platforms. Learning about cloud computing provides valuable insight into how 
+businesses manage data, deploy applications, and handle large-scale workloads 
+efficiently.
+
+Another important motivation was to explore the integration of artificial intelligence 
+with cloud computing. AI technologies such as machine learning and generative AI 
+require large amounts of data and computing resources, which are efficiently supported 
+by cloud platforms. Understanding how these technologies interact helps in developing 
+modern intelligent systems.
+
+This internship also helped bridge the gap between theoretical knowledge and real-world 
+technology applications. Concepts learned in areas such as networking, databases, and 
+software systems could be related to practical cloud services provided by AWS. By 
+studying these technologies together, I developed a clearer understanding of how cloud 
+infrastructure, data processing systems, and AI models work collectively to support 
+modern digital applications.
+\newpage
+\section{Methodology Details:}
+
+The methodology followed during the internship was based on a structured learning 
+approach through the Amazon Web Services Educate training modules. Each module 
+focused on a specific cloud technology and included learning materials and assessments 
+to evaluate understanding. This step-by-step approach helped build a clear 
+understanding of how different cloud services operate and how they are used in 
+real-world applications.
+
+The process began with studying the fundamentals of cloud computing, including cloud 
+architecture, service models, and the benefits of cloud adoption such as scalability, 
+reliability, and cost efficiency. I also learned about different cloud service models like 
+Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a 
+Service (SaaS).
+
+The next modules focused on cloud storage using Amazon S3, where I learned how 
+large volumes of data can be securely stored and managed in the cloud. This was 
+followed by studying cloud computing resources through Amazon EC2, which 
+explained how virtual machines are deployed and scaled based on application 
+requirements.
+
+Further modules introduced cloud networking through Virtual Private Cloud (VPC) 
+and database management using Amazon RDS, which demonstrated how secure 
+networks and relational databases are managed in cloud environments.
+
+Another important module introduced serverless computing using AWS Lambda. 
+Serverless computing allows developers to run application code without managing 
+underlying servers. The module explained how event-driven architecture works and how 
+applications can automatically scale based on incoming requests. This concept 
+highlighted the efficiency and flexibility of modern cloud-based application development.
+
+The final modules focused on machine learning and artificial intelligence technologies. 
+Using Amazon SageMaker, I studied the basic workflow of machine learning including 
+data preparation, model training, and deployment. Additionally, the internship 
+introduced generative artificial intelligence using Amazon Bedrock, which provides 
+access to advanced AI models capable of generating text and other forms of content.
+
+
+% ════════════════════════════════════════════════════════════
+%  CHAPTER VI — LEARNING OUTCOMES
+% ════════════════════════════════════════════════════════════
+\chapter{LEARNING OUTCOMES}
+
+Through this internship, I gained a clear understanding of the fundamental concepts of 
+cloud computing and artificial intelligence technologies. The training helped me 
+understand how cloud platforms provide scalable infrastructure for storing data, running 
+applications, and managing computing resources efficiently. I also learned about 
+different cloud service models and how organizations use cloud services to improve 
+performance, reliability, and cost efficiency.
+
+During the internship, I developed knowledge of several important cloud services 
+provided by Amazon Web Services. I learned how Amazon S3 is used for secure and 
+scalable cloud storage, and how Amazon EC2 provides virtual computing resources for 
+deploying applications. I also understood the importance of cloud networking, database 
+management using Amazon RDS, and serverless computing through AWS Lambda.
+
+In addition, the internship introduced me to emerging technologies such as machine 
+learning using Amazon SageMaker and generative artificial intelligence using Amazon 
+Bedrock. Overall, the internship helped me develop a strong foundation in cloud 
+technologies and provided insight into how AI and cloud computing can be combined 
+to build modern intelligent applications.
+
+
+% ════════════════════════════════════════════════════════════
+%  CHAPTER VII — CONCLUSION
+% ════════════════════════════════════════════════════════════
+\chapter{CONCLUSION}
+
+The internship provided valuable exposure to the fundamentals of cloud computing and 
+artificial intelligence technologies through the learning modules on the Amazon Web 
+Services Educate platform. Throughout the internship, I studied various cloud services 
+and gained an understanding of how modern cloud infrastructure supports the 
+development and deployment of scalable applications. The training modules helped me 
+understand the architecture and working principles of different cloud technologies.
+
+During the internship, I explored important AWS services such as Amazon S3 for cloud 
+storage, Amazon EC2 for computing resources, Amazon RDS for database management, 
+and AWS Lambda for serverless computing. I also gained introductory knowledge of 
+machine learning and generative AI using Amazon SageMaker and Amazon Bedrock. 
+These technologies demonstrated how cloud platforms enable efficient data processing, 
+application deployment, and intelligent system development.
+
+Overall, the internship strengthened my understanding of cloud-based technologies and 
+provided insight into how cloud computing and artificial intelligence are used in modern 
+IT environments. The knowledge gained during this training will help in further 
+developing technical skills and exploring advanced technologies in the field of cloud 
+computing and AI.
+
+
+% ════════════════════════════════════════════════════════════
+%  CHAPTER VIII — REFERENCES
+% ════════════════════════════════════════════════════════════
+\chapter*{\vspace{-1cm}REFERENCES}
+\addcontentsline{toc}{chapter}{References}
+\thispagestyle{fancy}
+
+\begin{center}
+    \rule{\linewidth}{0.4pt}
+\end{center}
+
+\vspace{0.4cm}
+
+\begin{enumerate}[leftmargin=1.5cm, label={[\arabic*]}, itemsep=0.3cm]
+\justifying
+
+    \item Amazon Web Services, \textit{AWS Lambda -- Serverless Computing Documentation}. [Online]. Available: \url{https://docs.aws.amazon.com/lambda/}
+
+    \item Amazon Web Services, \textit{Amazon SageMaker -- Machine Learning Documentation}. [Online]. Available: \\ \url{https://docs.aws.amazon.com/sagemaker/}
+
+    \item Amazon Web Services, \textit{Amazon Bedrock -- Generative AI Documentation}. [Online]. Available: \url{https://docs.aws.amazon.com/bedrock/}
+
+    \item Amazon Web Services, \textit{Amazon EventBridge Documentation}. [Online]. Available: \url{https://docs.aws.amazon.com/eventbridge/}
+
+    \item Amazon Web Services, \textit{Amazon CloudWatch -- Monitoring and Observability}. [Online]. Available: \\ \url{https://docs.aws.amazon.com/cloudwatch/}
+
+    \item E. Jonas et al., ``Cloud programming simplified: A Berkeley view on serverless computing,'' \textit{arXiv preprint}, arXiv:1902.03383, Feb. 2019. [Online]. Available: \url{https://arxiv.org/abs/1902.03383}
+
+    \item P. P. Singh and K. S. Saini, ``Optimizing AWS Cloud Infrastructure: An Analysis of Cloud-Nuke's Impact on Productivity, Cost Efficiency, and Resource Management,'' in \textit{Proc. 2024 3rd International Conference on Sentiment Analysis and Deep Learning (ICSADL)}, 2024, doi: 10.1109/ICSADL62624.2024.10601474.
+
+   
+
+    \item K. Ren, C. Wang, and Q. Wang, ``Security challenges for the public cloud,'' \textit{IEEE Internet Computing}, vol. 16, no. 1, pp. 69--73, Jan.--Feb. 2012, doi: 10.1109/MIC.2012.14.
+
+\end{enumerate}
+
+
+% ════════════════════════════════════════════════════════════
+%  ANNEXURE A — NOC LETTER
+% ════════════════════════════════════════════════════════════
+% ════════════════════════════════════════════════════════════
+%  ANNEXURE A — NOC LETTER
+% ════════════════════════════════════════════════════════════
+% ════════════════════════════════════════════════════════════
+%  ANNEXURE A — NOC LETTER
+% ════════════════════════════════════════════════════════════
+\appendix
+\chapter*{\vspace{-1cm}Annexure A}
+\addcontentsline{toc}{chapter}{Annexure A -- No Objection Certificate}
+\thispagestyle{fancy}
+
+\vspace{0.5cm}
+
+\begin{center}
+    {\small Nutan Maharashtra Vidya Prasarak Mandal's (NMVPM's)}\\[0.1cm]
+    {\normalsize \textbf{NUTAN MAHARASHTRA INSTITUTE OF ENGINEERING AND TECHNOLOGY (NMIET)}}\\
+    {\small Under Administrative Support - Pimpri Chinchwad Education Trust (PCET)}\\[0.1cm]
+    {\small Approved by AICTE \quad Accredited by NAAC \& NBA \quad Affiliated to SPPU}\\[0.1cm]
+    {\normalsize \textbf{DEPARTMENT OF COMPUTER ENGINEERING}}\\
+\end{center}
+
+\vspace{0.2cm}
+\noindent \textbf{Ref No.:} \hfill \textbf{Date:}
+
+\vspace{0.2cm}
+\noindent To\\
+\textbf{The HR Manager,}
+
+\vspace{0.2cm}
+\noindent \textbf{Subject: No Objection Certificate for Internship}
+
+\vspace{0.15cm}
+\noindent Respected Sir/Madam,
+
+\vspace{0.15cm}
+\noindent This is to certify that \underline{\hspace{3cm}} (PRN: \underline{\hspace{2cm}}), a bonafide student of \textbf{Third Year (Branch: Computer Engineering)}, studying in \textbf{Semester VI} at \textbf{Nutan Maharashtra Institute of Engineering and Technology, Pune, Department of Computer Engineering}, affiliated to \textbf{Savitribai Phule Pune University}, Pune, is permitted to undergo \textbf{Internship} at your esteemed organization.
+
+\vspace{0.15cm}
+\noindent The institute has \textbf{no objection} to the student undergoing internship from \textbf{Start Date:} \underline{\hspace{2.5cm}} to \textbf{End Date:} \underline{\hspace{2cm}} mode as per the company guidelines. This internship is a part of the academic curriculum of SPPU, Pune. The student will abide by all the rules, regulations, and confidentiality policies of your organization during the internship period. We shall be thankful for your kind cooperation and support.
+
+\vspace{1.5cm}
+\noindent
+\begin{tabular}{p{3.5cm} p{4.5cm} p{4cm}}
+     & Prof. Nilesh Kamble & Dr. Rahul Patil \\[0.2cm]
+    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD}\\
+     & & \textbf{Computer Engineering}
+\end{tabular}
+
+
+% ════════════════════════════════════════════════════════════
+%  ANNEXURE B — COMPLETION CERTIFICATE
+% ════════════════════════════════════════════════════════════
+\chapter*{\vspace{-1cm}Annexure B}
+\addcontentsline{toc}{chapter}{Annexure B -- Completion Certificate}
+\thispagestyle{fancy}
+
+\vspace{0.5cm}
+
+\begin{center}
+    {\Large \textbf{COMPLETION CERTIFICATE}}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+\includegraphics[width=0.95\textwidth, height=0.75\textheight, keepaspectratio]{completion_certificate.png}
+\end{center}
+
+\vspace{0.3cm}
+
+
+% ════════════════════════════════════════════════════════════
+%  LOG BOOK
+% ════════════════════════════════════════════════════════════
+\chapter*{Log Book}
+\addcontentsline{toc}{chapter}{Log Book}
+\thispagestyle{fancy}
+
+\begin{center}
+\small
+\begin{tabular}{|p{1.2cm}|p{9cm}|p{2.8cm}|}
+    \hline
+    \textbf{Week} & \textbf{Work Done} & \textbf{Coordinator Sign} \\
+    \hline
+    Week 1 & Studied Cloud Computing Fundamentals -- cloud architecture, service models (IaaS, PaaS, SaaS) and benefits of cloud adoption via AWS Educate. & \\[0.4cm]
+    \hline
+    Week 2 & Explored Amazon S3 -- cloud storage concepts, bucket creation, object storage and access policies. & \\[0.4cm]
+    \hline
+    Week 3 & Studied Amazon EC2 -- virtual computing instances, instance types, launch configurations and application deployment. & \\[0.4cm]
+    \hline
+    Week 4 & Learned VPC and Amazon RDS -- cloud networking, subnets, security groups and managed relational database deployment. & \\[0.4cm]
+    \hline
+    Week 5 & Studied Cloud Security and Monitoring -- IAM roles, access management, CloudWatch metrics, logging and protection of cloud resources. & \\[0.4cm]
+    \hline
+    Week 6 & Explored AWS Lambda and Serverless Computing -- event-driven architecture, function deployment and automatic scaling concepts. & \\[0.4cm]
+    \hline
+    Week 7 & Studied Amazon SageMaker -- machine learning workflow including data preparation, model training, evaluation and cloud deployment. & \\[0.4cm]
+    \hline
+    Week 8 & Explored Amazon Bedrock and Generative AI -- large language models, generative AI capabilities and completed all module assessments. & \\[0.4cm]
+    \hline
+    Week 9 & Built an event-driven serverless system on AWS using EventBridge and Lambda to auto-stop idle EC2 instances based on CloudWatch CPU metrics. Implemented tag-based filtering for non-production resources and CPU threshold-based idle detection to reduce cloud costs. & \\[0.4cm]
+    \hline
+\end{tabular}
+\end{center}
+
+\end{document}
