@@ -1,7 +1,7 @@
 \documentclass[12pt, a4paper, oneside]{report}
 
 % ─── Packages ───────────────────────────────────────────────
-\usepackage[top=1.3in, bottom=1.3in, left=1.2in, right=1.3in]{geometry}
+\usepackage[top=1.3in, bottom=1.3in, left=1in, right=1.3in]{geometry}
 \usepackage{mathptmx}
 \usepackage{setspace}
 \usepackage{titlesec}
@@ -57,6 +57,7 @@
 
 % ════════════════════════════════════════════════════════════
 \begin{document}
+
 \AddToShipoutPictureBG{%
     \begin{tikzpicture}[overlay, remember picture]
         \draw[line width=1.5pt]
@@ -75,6 +76,7 @@
 % ════════════════════════════════════════════════════════════
 \begin{titlepage}
 \thispagestyle{fancy}
+\pagenumbering{gobble}
 \centering
 
 \vspace*{-1cm}
@@ -105,7 +107,7 @@
 
 {\normalsize NUTAN MAHARASHTRA INSTITUTE OF ENGINEERING \& TECHNOLOGY}\\
 {\normalsize \textbf{TALEGAON DABHADE TAL.MAVAL, PUNE, 410507}}\\
-{\normalsize SAVITRIBAIPHULEPUNEUNIVERSITY}\\
+{\normalsize SAVITRIBAI PHULE PUNE UNIVERSITY}\\
 {\normalsize 2025 --2026}
 
 \end{titlepage}
@@ -114,6 +116,7 @@
 % ════════════════════════════════════════════════════════════
 %  PAGE 2 — CERTIFICATE
 % ════════════════════════════════════════════════════════════
+\pagenumbering{gobble}
 \chapter*{}
 \thispagestyle{fancy}
 \vspace*{-1.5cm}
@@ -138,10 +141,13 @@ Engineering of Savitribai Phule Pune University (SPPU).
 
 \vspace{3cm}
 \noindent
-\begin{tabular}{p{4cm} p{4.5cm} p{4.5cm}}
-    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD}\\
+\vspace{1.5cm}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ccc}
+    Prof. Ashwini Utture & Prof. Nilesh Kamble & Dr. Rahul Patil \\[0.2cm]
+    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD} \\
     & & \textbf{Computer Engineering}
-\end{tabular}
+\end{tabular*}
 
 
 % ════════════════════════════════════════════════════════════
@@ -187,15 +193,20 @@ indirectly supported us in the completion of this Internship.
 %  PAGE 4 — TABLE OF CONTENTS
 % ════════════════════════════════════════════════════════════
 \tableofcontents
+\vspace*{-2cm}
 \thispagestyle{fancy}
 
 
 % ════════════════════════════════════════════════════════════
 %  CHAPTER I — ORGANIZATIONAL STRUCTURE OF INDUSTRY
 % ════════════════════════════════════════════════════════════
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 \chapter{ORGANIZATIONAL STRUCTURE OF INDUSTRY}
 
 \section{Organizational Structure:}
+The organizational structure of Eduskill Foundation follows a hierarchical model with top management overseeing strategic decisions and departments such as development, data science, and operations handling execution. Team leads guide developers and interns in project tasks, ensuring efficient workflow and collaboration within the organization.
 
 % If you have an org chart image, insert it here:
 % \begin{figure}[h!]
@@ -214,9 +225,6 @@ Bhubaneswar - 751024, Odisha.
 
 \noindent \textbf{Name:} Eduskills Foundation
 
-\noindent \textbf{Address (Head Office):} \#806, DLF Cyber City, Technology Corridor, 
-Bhubaneswar -- 751024, Odisha
-
 \noindent \textbf{CIN:} [Enter CIN Number]
 
 \section{Company Vision:}
@@ -227,10 +235,6 @@ ecosystem by providing 360 degree holistic solutions to all the stakeholders.
 \section{Company Mission:}
 
 To positively impact 1 million beneficiaries by 2026.
-
-\medskip
-\noindent \textbf{How:}
-
 By comprehensive identification of skills gaps in the students and mapping them with 
 latest and world's best technical skills.
 
@@ -336,40 +340,46 @@ cloud platforms can support intelligent and scalable applications.
 \newpage
 \section{Introduction of Projects:}
 
-The main objective of this internship project was to gain practical knowledge of cloud 
-computing technologies and understand how cloud platforms support modern software 
-systems. With the rapid growth of digital services, cloud computing has become an 
-essential technology used by organizations to store data, deploy applications, and 
-manage computing infrastructure efficiently.
+\noindent\textbf{\large Event-Driven Serverless System for AWS Cost Optimization}
 
-This project focused on exploring the services and architecture provided by Amazon 
-Web Services, one of the leading cloud computing platforms in the world. AWS 
-provides a wide range of services that allow businesses to build scalable, secure, and 
-cost-effective applications without the need to maintain physical hardware.
+\vspace{0.3cm}
+\noindent\textbf{Introduction}
 
-During the internship, I studied various AWS services that are used for different 
-purposes in cloud environments. These included cloud storage services such as 
-Amazon S3, which enables secure storage and management of large volumes of data, 
-and computing services such as Amazon EC2, which allow users to run virtual servers 
-in the cloud. I also explored networking technologies through Virtual Private Cloud 
-(VPC), database management through Amazon RDS, and serverless computing using 
-AWS Lambda.
+This project focuses on optimizing cloud costs by automatically identifying and stopping 
+idle Amazon EC2 instances. In cloud environments, instances often remain running even 
+when not actively used, resulting in unnecessary expenses. Manual monitoring is 
+inefficient and difficult to scale, creating a need for an automated solution.
 
-In addition to cloud infrastructure technologies, the project also introduced artificial 
-intelligence tools such as Amazon SageMaker for machine learning and Amazon 
-Bedrock for generative AI applications. These technologies demonstrate how cloud 
-computing platforms are evolving to support intelligent data-driven systems.
+\noindent\textbf{Proposed Solution}
 
-I built an event-driven serverless system on AWS to optimize cloud costs. 
-The problem was that idle EC2 instances often continue running and increase expenses. 
-To solve this, I used EventBridge to trigger a Lambda function on a schedule. The 
-Lambda function checks EC2 instances and uses CloudWatch metrics to identify low 
-CPU usage. If an instance is idle, it automatically stops it.
+An event-driven serverless architecture was implemented using AWS services. Amazon 
+EventBridge triggers an AWS Lambda function at scheduled intervals. The Lambda 
+function retrieves EC2 instance details and evaluates their CPU utilization using Amazon 
+CloudWatch metrics. Instances with CPU usage below a defined threshold are considered 
+idle and are automatically stopped to reduce costs.
 
-I also implemented tag-based filtering to ensure only non-production resources are 
-affected and added logging for monitoring. One challenge was defining what counts as 
-`idle', which I solved by setting CPU thresholds. This solution helps reduce unnecessary 
-cloud spending and demonstrates a scalable, serverless approach to automation.
+\noindent\textbf{Key Features}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Automated detection and stopping of idle EC2 instances
+    \item Use of CloudWatch metrics for performance evaluation
+    \item Tag-based filtering to target only non-production resources
+    \item Logging mechanism for monitoring and tracking system actions
+    \item Fully serverless and scalable architecture
+\end{itemize}
+
+\noindent\textbf{Challenges and Approach}
+
+A key challenge was defining what qualifies as an ``idle'' instance. This was addressed 
+by setting appropriate CPU utilization thresholds based on usage patterns, ensuring 
+accurate identification without affecting necessary workloads.
+
+\noindent\textbf{Conclusion}
+
+The project provides a scalable and efficient solution for cloud cost optimization. By 
+leveraging AWS serverless services, it reduces manual effort, improves resource 
+utilization, and minimizes unnecessary cloud spending while maintaining operational 
+reliability.
+
 \newpage
 \section{Motivation and Relational Study:}
 
@@ -441,24 +451,16 @@ access to advanced AI models capable of generating text and other forms of conte
 % ════════════════════════════════════════════════════════════
 \chapter{LEARNING OUTCOMES}
 
-Through this internship, I gained a clear understanding of the fundamental concepts of 
-cloud computing and artificial intelligence technologies. The training helped me 
-understand how cloud platforms provide scalable infrastructure for storing data, running 
-applications, and managing computing resources efficiently. I also learned about 
-different cloud service models and how organizations use cloud services to improve 
-performance, reliability, and cost efficiency.
+Through this internship, I gained a comprehensive understanding of the fundamental concepts of cloud computing and artificial intelligence technologies. The training provided deep insights into how cloud platforms deliver scalable and on-demand infrastructure for storing data, running applications, and efficiently managing computing resources. I also developed a clear understanding of various cloud service models such as Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS), and how organizations leverage these models to enhance performance, reliability, and cost efficiency.
 
-During the internship, I developed knowledge of several important cloud services 
-provided by Amazon Web Services. I learned how Amazon S3 is used for secure and 
-scalable cloud storage, and how Amazon EC2 provides virtual computing resources for 
-deploying applications. I also understood the importance of cloud networking, database 
-management using Amazon RDS, and serverless computing through AWS Lambda.
+During the internship, I acquired practical knowledge of several core services offered by Amazon Web Services (AWS). I learned how Amazon S3 is utilized for secure, durable, and scalable object storage, enabling efficient data management. Additionally, I gained hands-on experience with Amazon EC2, which provides virtual servers for deploying and managing applications in a flexible cloud environment. I also explored cloud networking concepts, including Virtual Private Cloud (VPC), subnets, and security groups, which are essential for building secure and well-structured cloud architectures.
 
-In addition, the internship introduced me to emerging technologies such as machine 
-learning using Amazon SageMaker and generative artificial intelligence using Amazon 
-Bedrock. Overall, the internship helped me develop a strong foundation in cloud 
-technologies and provided insight into how AI and cloud computing can be combined 
-to build modern intelligent applications.
+Furthermore, I developed an understanding of database management using Amazon RDS, which simplifies the setup, operation, and scaling of relational databases in the cloud. I also gained exposure to serverless computing through AWS Lambda, where I learned how to execute code without managing servers, enabling cost-effective and event-driven application development.
+
+
+Moreover, this internship enhanced my problem-solving abilities and technical skills by allowing me to work on real-world use cases, such as optimizing cloud costs through automation. It also improved my understanding of best practices in cloud architecture, resource management, and system design.
+
+Overall, the internship played a crucial role in strengthening my technical foundation and provided valuable exposure to modern cloud and AI technologies. It has equipped me with the knowledge and skills required to design scalable, efficient, and intelligent applications by integrating cloud computing with artificial intelligence.
 
 
 % ════════════════════════════════════════════════════════════
@@ -523,62 +525,10 @@ computing and AI.
 
 \end{enumerate}
 
-
-% ════════════════════════════════════════════════════════════
-%  ANNEXURE A — NOC LETTER
-% ════════════════════════════════════════════════════════════
-% ════════════════════════════════════════════════════════════
-%  ANNEXURE A — NOC LETTER
-% ════════════════════════════════════════════════════════════
-% ════════════════════════════════════════════════════════════
-%  ANNEXURE A — NOC LETTER
-% ════════════════════════════════════════════════════════════
-\appendix
-\chapter*{\vspace{-1cm}Annexure A}
-\addcontentsline{toc}{chapter}{Annexure A -- No Objection Certificate}
-\thispagestyle{fancy}
-
-\vspace{0.5cm}
-
-\begin{center}
-    {\small Nutan Maharashtra Vidya Prasarak Mandal's (NMVPM's)}\\[0.1cm]
-    {\normalsize \textbf{NUTAN MAHARASHTRA INSTITUTE OF ENGINEERING AND TECHNOLOGY (NMIET)}}\\
-    {\small Under Administrative Support - Pimpri Chinchwad Education Trust (PCET)}\\[0.1cm]
-    {\small Approved by AICTE \quad Accredited by NAAC \& NBA \quad Affiliated to SPPU}\\[0.1cm]
-    {\normalsize \textbf{DEPARTMENT OF COMPUTER ENGINEERING}}\\
-\end{center}
-
-\vspace{0.2cm}
-\noindent \textbf{Ref No.:} \hfill \textbf{Date:}
-
-\vspace{0.2cm}
-\noindent To\\
-\textbf{The HR Manager,}
-
-\vspace{0.2cm}
-\noindent \textbf{Subject: No Objection Certificate for Internship}
-
-\vspace{0.15cm}
-\noindent Respected Sir/Madam,
-
-\vspace{0.15cm}
-\noindent This is to certify that \underline{\hspace{3cm}} (PRN: \underline{\hspace{2cm}}), a bonafide student of \textbf{Third Year (Branch: Computer Engineering)}, studying in \textbf{Semester VI} at \textbf{Nutan Maharashtra Institute of Engineering and Technology, Pune, Department of Computer Engineering}, affiliated to \textbf{Savitribai Phule Pune University}, Pune, is permitted to undergo \textbf{Internship} at your esteemed organization.
-
-\vspace{0.15cm}
-\noindent The institute has \textbf{no objection} to the student undergoing internship from \textbf{Start Date:} \underline{\hspace{2.5cm}} to \textbf{End Date:} \underline{\hspace{2cm}} mode as per the company guidelines. This internship is a part of the academic curriculum of SPPU, Pune. The student will abide by all the rules, regulations, and confidentiality policies of your organization during the internship period. We shall be thankful for your kind cooperation and support.
-
-\vspace{1.5cm}
-\noindent
-\begin{tabular}{p{3.5cm} p{4.5cm} p{4cm}}
-     & Prof. Nilesh Kamble & Dr. Rahul Patil \\[0.2cm]
-    \textbf{Internship Guide} & \textbf{Internship Coordinator} & \textbf{HOD}\\
-     & & \textbf{Computer Engineering}
-\end{tabular}
-
-
 % ════════════════════════════════════════════════════════════
 %  ANNEXURE B — COMPLETION CERTIFICATE
 % ════════════════════════════════════════════════════════════
+\appendix
 \chapter*{\vspace{-1cm}Annexure B}
 \addcontentsline{toc}{chapter}{Annexure B -- Completion Certificate}
 \thispagestyle{fancy}
